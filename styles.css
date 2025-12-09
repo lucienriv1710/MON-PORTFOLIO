@@ -1,0 +1,18 @@
+#mes-projets {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+}
+
+.mes-cartes{
+    display: inline-block;
+    margin: 10px;
+    background-color: lightblue;
+    padding: 5px;
+}
+
+img{
+    width: 200px;
+    height: 350px;
+    border-radius: 25px;
+}
