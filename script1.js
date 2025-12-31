@@ -67,15 +67,12 @@ const titre = document.querySelector('.highlight');
 const texte = titre.textContent;
 titre.innerHTML = '';
 
-// On boucle sur chaque lettre
 [...texte].forEach((lettre, index) => {
-  const span = document.createElement('span');
-  
-  // Si c'est un espace, on force sa largeur
-  span.innerHTML = lettre === ' ' ? '&nbsp;' : lettre;
-  
-  // On décale l'animation de chaque lettre (0.1s, 0.2s, etc.)
-  span.style.animationDelay = `${index * 0.1}s`;
-  
-  titre.appendChild(span);
+    const span = document.createElement('span');
+    span.innerHTML = lettre === ' ' ? '&nbsp;' : lettre;
+
+  // Le délai crée l'effet de vague colorée
+  span.style.animationDelay = `${index * 0.15}s`;
+
+    titre.appendChild(span);
 });
