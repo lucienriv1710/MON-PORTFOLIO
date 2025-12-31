@@ -1,0 +1,262 @@
+:root {
+    --primary: #3f42ea;
+    --dark: #0f172a;
+    --light: #f8fafc;
+    --gray: #64748b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 10%;
+    position: fixed;
+    width: 100%;
+    background: rgba(248, 250, 252, 0.9);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.logo { font-weight: 800; font-size: 1.5rem; }
+.logo span { color: var(--primary); }
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 2rem; }
+nav ul li a { text-decoration: none; color: var(--dark); font-weight: 500; transition: 0.3s; }
+nav ul li a:hover { color: var(--primary); }
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(to bottom, #0f172a, #f8fafc);
+}
+
+.hero p{
+    padding-bottom: 40px;
+}
+
+.hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+.highlight { color: var(--primary); }
+
+/* Cartes de Projets */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 10%;
+    background: linear-gradient(to bottom, #f8fafc, #ffff);
+}
+
+.card {
+    background: #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s;
+}
+
+.card:hover { 
+    transform: translateY(-10px);
+}
+
+.card-img { 
+    height: 200px; background: #ddd; 
+}
+
+.card-info { 
+    padding: 1.5rem; 
+}
+
+/* Formulaire */
+#contact { 
+    padding: 5rem 10%; background: linear-gradient(to bottom, #ffff, #0f172a); 
+}
+#contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input, textarea {
+    padding: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    outline: none;
+}
+
+.btn {
+    background: var(--primary);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.btn:hover { opacity: 0.9; transform: scale(1.05); }
+
+.section-title { text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+
+/* --- Style du Footer --- */
+footer {
+    /* Fond sombre avec un spot lumineux venant du haut (votre demande précédente) */
+    background: radial-gradient(circle at top, #0f172a, #111111);
+    color: #ffffff;
+    padding-top: 50px;
+    margin-top: 50px; /* Espace par rapport au formulaire */
+    font-family: sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Pour que ça passe à la ligne sur mobile */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px; /* Largeur min pour mobile */
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+/* Titres des colonnes */
+.footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Petit soulignement décoratif sous les titres */
+.footer-section h3::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: var(--primary); /* Couleur d'accent (à changer selon votre charte) */
+    margin-top: 5px;
+}
+
+/* Texte général */
+.footer-section p {
+    line-height: 1.6;
+    color: #cccccc;
+    font-size: 0.9rem;
+}
+
+/* Liens de navigation */
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-section ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px; /* Petit effet de glissement */
+}
+
+/* Liens réseaux sociaux (style boutons) */
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--primary); /* Couleur au survol */
+    color: #000;
+}
+
+/* Barre de copyright tout en bas */
+.footer-bottom {
+    background: #000000;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 1px solid #333;
+}
+
+/* État normal de la carte */
+.card {
+    transition: all 0.3s ease; /* Rend l'animation fluide */
+}
+
+/* État quand la souris survole */
+.card:hover {
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
+    transform: translateY(-10px); /* Effet de lévitation très moderne */
+}
+
+.formulaire{
+    border: 2px solid #ccc;
+    cursor: pointer;
+  outline: none; /* Enlever le contour par défaut du navigateur */
+  transition: border-color 0.3s; /* Pour un effet fluide */
+}
+
+/* L'effet au clic */
+.formulaire:focus {
+  border: 3px solid var(--primary); /* Couleur bleue au clic */
+}
+
+.highlight span {
+    display: inline-block;
+    font-size: 3rem;
+    animation: floutter 1.5s ease-in-out infinite;
+}
+
+@keyframes floutter {
+    0%, 100% {
+    transform: translateY(0); /* Position normale */
+    }
+    50% {
+    transform: translateY(-15px); /* Monte de 15px */
+    color: var(--dark); /* Change aussi la couleur pour plus de style */
+    }
+}
