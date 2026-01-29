@@ -17,11 +17,6 @@ cartes.forEach(card => {
     observer.observe(card);
 });
 
-// Gestion du formulaire
-document.getElementById('contact-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    alert('Merci ! Votre message a été "envoyé" (simulation).');
-});
 
 // 1. On sélectionne toutes les cartes
 const cards = document.querySelectorAll('.card');
@@ -63,16 +58,31 @@ formu.forEach(formulaire => {
     });
 });
 
-const titre = document.querySelector('.highlight');
-const texte = titre.textContent;
-titre.innerHTML = '';
 
-[...texte].forEach((lettre, index) => {
-    const span = document.createElement('span');
-    span.innerHTML = lettre === ' ' ? '&nbsp;' : lettre;
 
-  // Le délai crée l'effet de vague colorée
-  span.style.animationDelay = `${index * 0.15}s`;
 
-    titre.appendChild(span);
+// Initialise EmailJS avec ta clé publique
+emailjs.init("c5g5AknBe_s_I5rA0");
+
+// Gère l'envoi du formulaire
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Empêche le rechargement de la page
+    
+    // Récupère les valeurs du formulaire
+    const params = {
+        nom: this.nom.value,
+        email: this.email.value,
+        message: this.message.value
+    };
+    
+    // Envoie l'email
+    emailjs.send("portfolio", "template_x15joai", params)
+        .then(function() {
+            alert('Message envoyé avec succès ! ✅');
+            document.getElementById('contact-form').reset(); // Vide le formulaire
+        })
+        .catch(function(error) {
+            console.log('Détails erreur:', error); // Affiche l'erreur complète dans la console
+            alert('Erreur : ' + error.text); // Affiche le message d'erreur précis
+        });
 });
