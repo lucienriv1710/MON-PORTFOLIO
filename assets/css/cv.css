@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* Même palette que le portfolio (style1.css) */
+:root {
+    --ink: #0b2a2e;
+    --ink-deep: #071c1f;
+    --teal: #0f766e;
+    --amber: #f5b83d;
+    --amber-hover: #ffc95e;
+    --mist: #f4f6f3;
+    --line: #d3ddd8;
+    --text: #14262a;
+    --on-dark: #e9f1ef;
+
+    --font-title: 'Bricolage Grotesque', 'Segoe UI', sans-serif;
+    --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
 /* Reset simple */
 * {
     margin: 0;
@@ -6,55 +24,71 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    font-family: var(--font-body);
+    background-color: var(--mist);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    line-height: 1.6;
 }
 
-/* En-tête avec titre et bouton */
+/* ---------- En-tête : bandeau sombre pleine largeur ---------- */
 .cv-header {
-    text-align: center;
-    margin-bottom: 30px;
     width: 100%;
-    max-width: 800px;
+    background: var(--ink);
+    text-align: center;
+    padding: 2.5rem 20px 2.2rem;
+    margin-bottom: 2.5rem;
 }
 
 h1 {
-    margin-bottom: 15px;
-    font-size: 2rem;
+    font-family: var(--font-title);
+    font-size: clamp(1.7rem, 5vw, 2.6rem);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+    color: var(--on-dark);
+    margin-bottom: 1.2rem;
 }
 
 .back-btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
+    padding: 0.8rem 1.6rem;
+    background-color: var(--amber);
+    color: var(--ink);
     text-decoration: none;
-    border-radius: 25px;
-    font-weight: bold;
-    transition: background 0.3s ease;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
 }
 
 .back-btn:hover {
-    background-color: #3f42ea;
+    background-color: var(--amber-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(245, 184, 61, 0.35);
 }
 
-/* Case pour le CV */
+.back-btn:focus-visible {
+    outline: 3px solid var(--on-dark);
+    outline-offset: 3px;
+}
+
+/* ---------- Cadre du CV ---------- */
 .cv-main {
     width: 100%;
-    max-width: 900px; /* Largeur de la case */
+    max-width: 900px;
+    padding: 0 20px 3rem;
 }
 
 .cv-frame {
-    background-color: white;
+    background-color: #ffffff;
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--teal);
+    border-radius: 14px;
+    box-shadow: 0 16px 36px rgba(11, 42, 46, 0.12);
     display: flex;
     justify-content: center;
 }
@@ -62,12 +96,22 @@ h1 {
 .cv-image {
     max-width: 100%;
     height: auto;
-    border: 1px solid #ddd;
+    border: 1px solid var(--line);
+    border-radius: 4px;
 }
 
-/* Optimisation pour mobile */
+/* ---------- Mobile ---------- */
 @media (max-width: 600px) {
-    h1 {
-        font-size: 1.5rem;
+    .cv-header {
+        padding: 2rem 16px 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cv-main {
+        padding: 0 12px 2rem;
+    }
+
+    .cv-frame {
+        padding: 10px;
     }
 }
